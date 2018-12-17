@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Zhaolong Wang">
+    <title>Pure CSS Game -- Sky Gold Collector</title>
+    <link rel="stylesheet" href="./css/SkyGoldCollector.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Sky Gold collector</h1>
+    </header>
+    <hr>
+    <aside>
+        <div class="left">
+            <h2>How To Play:</h2>
+            <ol>
+                <li>Click <img src="./image/startbtn.png" alt="start">to play</li>
+                <li>Click on falling items to gain scores:
+                    <ul>
+                        <li><img src="./image/goldIcon.png" alt="gold"> : 1 point</li>
+                        <li><img src="./image/brickIcon.png" alt="brick"> : 5 points</li>
+                        <li><img src="./image/bombIcon.png" alt="bomb"> : game over</li>
+                        <li><img src="./image/giftIcon.png" alt=""> : big surprise</li>
+                    </ul>
+                </li>
+                <li>Click on <img src="./image/againbtn.png" alt="play again"> to replay</li>
+                <li>Game time: 15s</li>
+                <li>Total score: 50 points</li>
+
+            </ol>
+        </div>
+    </aside>
+    <main>
+        <input type="checkbox" id="start">
+
+        <input type="checkbox" id="bomb">
+
+        <input type="checkbox" id="cbGold1">
+        <input type="checkbox" id="cbBrick1">
+        <input type="checkbox" id="cbGold2">
+        <input type="checkbox" id="cbBrick2">
+        <input type="checkbox" id="cbBrick3">
+        <input type="checkbox" id="cbGold3">
+        <input type="checkbox" id="cbGold4">
+        <input type="checkbox" id="cbGold5">
+        <input type="checkbox" id="cbBrick4">
+
+        <input type="checkbox" id="cbGold6">
+        <input type="checkbox" id="cbBrick6">
+        <input type="checkbox" id="cbGold7">
+        <input type="checkbox" id="cbBrick7">
+        <input type="checkbox" id="cbBrick8">
+        <input type="checkbox" id="cbGold8">
+        <input type="checkbox" id="cbGold9">
+        <input type="checkbox" id="cbGold10">
+        <input type="checkbox" id="cbBrick9">
+
+        <div class="start">
+            <label for="start">START</label>
+            <div class="bottomRibbon"></div>
+        </div>
+        <div class="play">
+            <div class="topRibbon"><span>SCORE:</span></div>
+
+            <label for="cbGold1" class="gold1 pos1"></label>
+            <label for="bomb" class="bomb1 pos2"></label>
+            <label for="cbBrick1" class="brick1 pos3"></label>
+            <label for="cbGold2" class="gold2 pos2"><img src="./image/giftIcon.png" alt="a gift"></label>
+            <label for="cbBrick2" class="brick2 pos1"><img src="./image/giftIcon.png" alt="a gift"></label>
+            <label for="bomb" class="bomb2 pos3"><img src="./image/giftIcon.png" alt="a gift"></label>
+            <label for="cbBrick3" class="brick3 pos2"></label>
+            <label for="bomb" class="bomb3 pos3"></label>
+            <label for="cbGold3" class="gold3 pos1"></label>
+            <label for="bomb" class="bomb4 pos3"><img src="./image/giftIcon.png" alt="a gift"></label>
+            <label for="cbGold4" class="gold4 pos2"></label>
+            <label for="cbGold5" class="gold5 pos1"></label>
+            <label for="cbBrick4" class="brick4 pos3"><img src="./image/giftIcon.png" alt="a gift"></label>
+            <label for="bomb" class="bomb5 pos1"></label>
+
+
+            <label for="cbGold6" class="gold6 pos1"></label>
+            <label for="bomb" class="bomb1 pos2"></label>
+            <label for="cbBrick6" class="brick6 pos3"></label>
+            <label for="cbGold7" class="gold7 pos2"><img src="./image/giftIcon.png" alt="a gift"></label>
+            <label for="cbBrick7" class="brick7 pos1"><img src="./image/giftIcon.png" alt="a gift"></label>
+            <label for="bomb" class="bomb7 pos3"><img src="./image/giftIcon.png" alt="a gift"></label>
+            <label for="cbBrick8" class="brick8 pos2"></label>
+            <label for="bomb" class="bomb8 pos3"></label>
+            <label for="cbGold8" class="gold8 pos1"></label>
+            <label for="bomb" class="bomb9 pos3"><img src="./image/giftIcon.png" alt="a gift"></label>
+            <label for="cbGold9" class="gold9 pos2"></label>
+            <label for="cbGold10" class="gold10 pos1"></label>
+            <label for="cbBrick9" class="brick9 pos3"><img src="./image/giftIcon.png" alt="a gift"></label>
+            <label for="bomb" class="bomb10 pos1"></label>
+
+            <div class="bottomRibbon">
+                <div class="box">
+                    <div class="bar"> </div>
+                </div>
+                <div class="count">
+                    <div class="num">15 14 13 12 11 10 &nbsp;9 &nbsp;8 &nbsp;7 &nbsp;6 &nbsp;5 &nbsp;4 &nbsp;3 &nbsp;2
+                        &nbsp;1 &nbsp;0</div>
+                </div>
+                <!-- .count and .num are created by Bianyu Wang -->
+            </div>
+        </div>
+        <div class="end">
+            <p><strong>GAME OVER</strong><br><br>
+                <a href="./index.html">Play Again</a></p>
+        </div>
+        <div class="end2">
+            <p><strong>GAME OVER</strong><br><br>
+                <a href="./index.html">Play Again</a></p>
+        </div>
+    </main>
+    <aside>
+        <div class="right">
+            <h3>Have Fun !</h3>
+        </div>
+    </aside>
+    <footer>
+        <hr>
+        <br>
+        <small>&copy; Zhaolong Wang  in November 2018</small>
+    </footer>
+</body>
+
+</html>

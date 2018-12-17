@@ -1,0 +1,1045 @@
+/*Created by zhaoolong */
+
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+img {
+    pointer-events: none;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    font: 24pt fantasy;
+    color: goldenrod;
+    padding: 40px 0 10px;
+    z-index: 10;
+    background: whitesmoke url("../image/top.png") top center /100% 100%;
+}
+
+aside .left {
+    position: absolute;
+    margin: 20px auto 0px;
+    width: 25%;
+    height: 700px;
+    background: whitesmoke url("../image/left.jpg") center center /100% 100%;
+    z-index: 10;
+    /* float: left; */
+    overflow: hidden;
+}
+
+aside .right {
+    position: absolute;
+    left: 75%;
+    margin: 19px auto 0px;
+    width: 25%;
+    height: 700px;
+    background: whitesmoke url("../image/right.jpg") center /100% 100%;
+    /* float: left; */
+    overflow: hidden;
+    text-align: center;
+}
+
+h2 {
+    margin: 20px auto;
+    padding-left: 20%;
+    color:yellowgreen;
+    font: bolder 3em serif;
+    overflow: hidden;
+}
+
+h3{margin: 25% auto;
+    color: indianred;
+    font: bolder 3em cursive;
+    
+}
+ol, ul {
+    margin: 20px auto 0 20%;
+    line-height: 2em;
+    color: darkblue;
+    font-size: 1.3em;
+    font-family: Georgia, serif;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0px 5% 10px;
+}
+.left img{
+    vertical-align: middle;
+}
+
+[type="checkbox"] {
+    width: 5px;
+    height: 5px;
+    visibility: hidden;
+}
+
+aside img {
+    max-height: 40px;
+    max-width: 80px;
+}
+
+main {
+    counter-reset: mark;
+    position: absolute;
+    left: 25%;
+    width: 50%;
+    height: 700px;
+    margin: 0 auto;
+    padding-bottom: 1em;
+    /* float: left; */
+}
+
+.start {
+    position: absolute;
+    top: 20px;
+    z-index: 5;
+    background: url("../image/poster.jpeg") center center /cover no-repeat;
+    display: block;
+    width: 100%;
+    height: 700px;
+    text-align: center;
+    /* float: left; */
+    overflow: hidden;
+}
+
+label:hover {
+    cursor: -webkit-grab;
+    cursor: grab;
+}
+
+.start label {
+    position: relative;
+    top: 40%;
+    color: darkmagenta;
+    font: bolder 60px serif;
+    letter-spacing: 0.2em;
+    border: 10px outset whitesmoke;
+}
+
+
+
+#start:checked~.start {
+    position: absolute;
+    top: -720px;
+    -webkit-transition: top 0.5s linear;
+    transition: top 0.5s linear;
+}
+
+.play {
+    position: absolute;
+    top: 19px;
+    background: url("../image/poster.jpeg") center center /cover no-repeat;
+    width: 100%;
+    height: 700px;
+    display: none;
+}
+
+.end, .end2 {
+    position: absolute;
+    top: -720px;
+    background-color: rgba(128, 128, 128, 0.5);
+    z-index: 5;
+    width: 100%;
+    height: 700px;
+    /* float: left; */
+    overflow: hidden;
+    text-align: center;
+}
+
+p {
+    position: relative;
+    top: 30%;
+    z-index: 6;
+}
+
+strong, strong~br {
+    color: whitesmoke;
+    font: bolder 60px serif;
+    /* border: 5px inset whitesmoke; */
+}
+
+a, a:link, a:visited {
+    text-decoration: none;
+    background-color: whitesmoke;
+    color: firebrick;
+    font: bolder 30px sans-serif;
+    border: 10px ridge whitesmoke;
+    padding: 10px;
+}
+
+#start:checked~.end {
+    position: absolute;
+    top: 20px;
+    -webkit-transition: top 0.5s linear;
+    transition: top 0.5s linear;
+    -webkit-transition-delay: 15s;
+            transition-delay: 15s;
+}
+
+#start:checked~.play {
+    display: block;
+}
+
+#start:checked {
+    display: none;
+}
+
+.topRibbon {
+    width: 100%;
+    /* background:rgb(211, 238, 247); */
+    background: rgb(211, 238, 247) url("../image/ribbon.jpg") center center/100% 100%;
+    height: 90px;
+    position: absolute;
+    z-index: 1;
+}
+
+.play label {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    /* border-radius: 50%; */
+}
+
+span {
+    color: darkcyan;
+    font: bolder 40px monoplace;
+    position: absolute;
+    left: 25%;
+    bottom: 5%;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    z-index: 6;
+}
+
+#bomb:checked~.end2 {
+    position: absolute;
+    top: 20px;
+    -webkit-transition: top 0.5s linear 0.5s;
+    transition: top 0.5s linear 0.5s;
+}
+
+#bomb:checked~.end {
+    display: none;
+}
+
+#bomb:checked~div label, #bomb:checked~div .bar, #bomb:checked~div .num, #bomb:checked~div .count {
+    -webkit-animation-play-state: paused;
+            animation-play-state: paused;
+}
+
+#bomb:checked~div label {
+    opacity: 0;
+    -webkit-transition: opacity 1s linear;
+    transition: opacity 1s linear;
+}
+
+#bomb:checked~div [class^=bomb] {
+    background: url("../image/boomIcon.png");
+    opacity: 0;
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+    -webkit-transition: opacity 1s ease-out, background 0.3s ease-out;
+    transition: opacity 1s ease-out, background 0.3s ease-out;
+}
+
+#bomb:checked~div label {
+    pointer-events: none;
+}
+
+/* start position */
+
+.pos1 {
+    left: 15%;
+}
+
+.pos2 {
+    left: 45%;
+}
+
+.pos3 {
+    left: 75%;
+}
+
+/* 1 gold1 */
+
+.gold1 {
+    background: url("../image/goldIcon.png");
+    -webkit-animation: drop 3s ease-in .7s 1 alternate forwards;
+            animation: drop 3s ease-in .7s 1 alternate forwards;
+}
+
+#cbGold1:checked {
+    counter-increment: mark 1;
+}
+
+#cbGold1:checked~div .gold1 {
+    background: url("../image/wowIcon.png");
+    /* the goldChestIcon.jpg is transparent, so reset background color */
+    opacity: 0;
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+    -webkit-transition: opacity 1s ease-out, background 0.3s ease-out;
+    transition: opacity 1s ease-out, background 0.3s ease-out;
+    pointer-events: none;
+}
+
+#cbGold1:checked~div span::after {
+    /* counter-increment: mark 1; */
+    content: " " counter(mark);
+}
+
+/* 2 bomb1 */
+
+.bomb1 {
+    background: url("../image/bombIcon.png");
+    -webkit-animation: drop 3s ease-in 1.4s 1 alternate forwards;
+            animation: drop 3s ease-in 1.4s 1 alternate forwards;
+}
+
+.brick1 {
+    background: url("../image/brickIcon.png");
+    -webkit-animation: drop 3s ease-in 2.1s 1 alternate forwards;
+            animation: drop 3s ease-in 2.1s 1 alternate forwards;
+}
+
+/* 3 brick1 */
+
+#cbBrick1:checked {
+    counter-increment: mark 5;
+}
+
+#cbBrick1:checked~div .brick1 {
+    background: url("../image/bravoIcon.png");
+    opacity: 0;
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+    -webkit-transition: opacity 1s ease-out, background 0.3s ease-out;
+    transition: opacity 1s ease-out, background 0.3s ease-out;
+    pointer-events: none;
+}
+
+#cbBrick1:checked~div span::after {
+    content: " " counter(mark);
+}
+
+/* 4 gold2 gift */
+
+.gold2 {
+    background: url("../image/goldIcon.png");
+    -webkit-animation: drop 3s ease-in 2.8s 1 alternate forwards;
+            animation: drop 3s ease-in 2.8s 1 alternate forwards;
+}
+
+#cbGold2:checked {
+    counter-increment: mark 1;
+}
+
+#cbGold2:checked~div .gold2 {
+    background: url("../image/wowIcon.png");
+    opacity: 0;
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+    -webkit-transition: opacity 1s ease-out, background 0.3s ease-out;
+    transition: opacity 1s ease-out, background 0.3s ease-out;
+    -webkit-transition-delay: 0.3s;
+            transition-delay: 0.3s;
+    pointer-events: none;
+}
+
+#cbGold2:checked~div .gold2 img {
+    display: none;
+}
+
+#cbGold2:checked~div span::after {
+    content: " " counter(mark);
+}
+
+/* 5 brick2 3.5s*/
+
+.brick2 {
+    background: url("../image/brickIcon.png");
+    -webkit-animation: drop 3s ease-in 3.5s 1 alternate forwards;
+            animation: drop 3s ease-in 3.5s 1 alternate forwards;
+}
+
+#cbBrick2:checked {
+    counter-increment: mark 5;
+}
+
+#cbBrick2:checked~div .brick2 {
+    background: url("../image/bravoIcon.png");
+    opacity: 0;
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+    -webkit-transition: opacity 1s ease-out, background 0.3s ease-out;
+    transition: opacity 1s ease-out, background 0.3s ease-out;
+    pointer-events: none;
+}
+
+#cbBrick2:checked~div .brick2 img {
+    display: none;
+}
+
+#cbBrick2:checked~div span::after {
+    content: " " counter(mark);
+}
+
+/* 6 bomb2  3.5s*/
+
+.bomb2 {
+    background: url("../image/bombIcon.png");
+    -webkit-animation: drop 3s ease-in 3.5s 1 alternate forwards;
+            animation: drop 3s ease-in 3.5s 1 alternate forwards;
+}
+
+#bomb:checked~div .bomb2 img {
+    display: none;
+}
+
+/* 7 brick 4.2 */
+
+.brick3 {
+    background: url("../image/brickIcon.png");
+    -webkit-animation: drop 3s ease-in 4.2s 1 alternate forwards;
+            animation: drop 3s ease-in 4.2s 1 alternate forwards;
+}
+
+#cbBrick3:checked {
+    counter-increment: mark 5;
+}
+
+#cbBrick3:checked~div .brick3 {
+    background: url("../image/bravoIcon.png");
+    opacity: 0;
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+    -webkit-transition: opacity 1s ease-out, background 0.3s ease-out;
+    transition: opacity 1s ease-out, background 0.3s ease-out;
+    pointer-events: none;
+}
+
+#cbBrick3:checked~div span::after {
+    content: " " counter(mark);
+}
+
+/* 8 bomb3 4.9 */
+
+.bomb3 {
+    background: url("../image/bombIcon.png");
+    -webkit-animation: drop 2.5s ease-in 4.9s 1 alternate forwards;
+            animation: drop 2.5s ease-in 4.9s 1 alternate forwards;
+}
+
+/* 9 gold3 5.6*/
+
+.gold3 {
+    background: url("../image/goldIcon.png");
+    -webkit-animation: drop 2.5s ease-in 5.6s 1 alternate forwards;
+            animation: drop 2.5s ease-in 5.6s 1 alternate forwards;
+}
+
+#cbGold3:checked {
+    counter-increment: mark 1;
+}
+
+#cbGold3:checked~div .gold3 {
+    background: url("../image/wowIcon.png");
+    /* the goldChestIcon.png is transparent, so reset background color */
+    opacity: 0;
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+    -webkit-transition: opacity 1s ease-out, background 0.3s ease-out;
+    transition: opacity 1s ease-out, background 0.3s ease-out;
+    pointer-events: none;
+}
+
+#cbGold3:checked~div span::after {
+    /* counter-increment: mark 1; */
+    content: " " counter(mark);
+}
+
+/* 10 bomb4 6.3 */
+
+.bomb4 {
+    background: url("../image/bombIcon.png");
+    -webkit-animation: drop 3s ease-in 6.3s 1 alternate forwards;
+            animation: drop 3s ease-in 6.3s 1 alternate forwards;
+}
+
+#bomb:checked~div .bomb4 img {
+    display: none;
+}
+
+/* 11 gold4 6.5 */
+
+.gold4 {
+    background: url("../image/goldIcon.png");
+    -webkit-animation: drop 2.5s ease-in 6.5s 1 alternate forwards;
+            animation: drop 2.5s ease-in 6.5s 1 alternate forwards;
+}
+
+#cbGold4:checked {
+    counter-increment: mark 1;
+}
+
+#cbGold4:checked~div .gold4 {
+    background: url("../image/wowIcon.png");
+    /* the goldChestIcon.png is transparent, so reset background color */
+    opacity: 0;
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+    -webkit-transition: opacity 1s ease-out, background 0.3s ease-out;
+    transition: opacity 1s ease-out, background 0.3s ease-out;
+    pointer-events: none;
+}
+
+#cbGold4:checked~div span::after {
+    /* counter-increment: mark 1; */
+    content: " " counter(mark);
+}
+
+/* 12 gold5 7 */
+
+.gold5 {
+    background: url("../image/goldIcon.png");
+    -webkit-animation: drop 2.5s ease-in 7s 1 alternate forwards;
+            animation: drop 2.5s ease-in 7s 1 alternate forwards;
+}
+
+#cbGold5:checked {
+    counter-increment: mark 1;
+}
+
+#cbGold5:checked~div .gold5 {
+    background: url("../image/wowIcon.png");
+    /* the goldChestIcon.png is transparent, so reset background color */
+    opacity: 0;
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+    -webkit-transition: opacity 1s ease-out, background 0.3s ease-out;
+    transition: opacity 1s ease-out, background 0.3s ease-out;
+    pointer-events: none;
+}
+
+#cbGold5:checked~div span::after {
+    /* counter-increment: mark 1; */
+    content: " " counter(mark);
+}
+
+/* 13 brick4  7.7*/
+
+.brick4 {
+    background: url("../image/brickIcon.png");
+    -webkit-animation: drop 2.5s ease-in 7.7s 1 alternate forwards;
+            animation: drop 2.5s ease-in 7.7s 1 alternate forwards;
+}
+
+#cbBrick4:checked {
+    counter-increment: mark 5;
+}
+
+#cbBrick4:checked~div .brick4 {
+    background: url("../image/bravoIcon.png");
+    opacity: 0;
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+    -webkit-transition: opacity 1s ease-out, background 0.3s ease-out;
+    transition: opacity 1s ease-out, background 0.3s ease-out;
+    pointer-events: none;
+}
+
+#cbBrick4:checked~div .brick4 img {
+    display: none;
+}
+
+#cbBrick4:checked~div span::after {
+    content: " " counter(mark);
+}
+
+/* 14 bomb5 8 */
+
+.bomb5 {
+    background: url("../image/bombIcon.png");
+    -webkit-animation: drop 3s ease-in 8s 1 alternate forwards;
+            animation: drop 3s ease-in 8s 1 alternate forwards;
+}
+
+/* 15 gold6 8.5 */
+
+.gold6 {
+    background: url("../image/goldIcon.png");
+    -webkit-animation: drop 3s ease-in 8.5s 1 alternate forwards;
+            animation: drop 3s ease-in 8.5s 1 alternate forwards;
+}
+
+#cbGold6:checked {
+    counter-increment: mark 1;
+}
+
+#cbGold6:checked~div .gold6 {
+    background: url("../image/wowIcon.png");
+    /* the goldChestIcon.png is transparent, so reset background color */
+    opacity: 0;
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+    -webkit-transition: opacity 1s ease-out, background 0.3s ease-out;
+    transition: opacity 1s ease-out, background 0.3s ease-out;
+    pointer-events: none;
+}
+
+#cbGold6:checked~div span::after {
+    /* counter-increment: mark 1; */
+    content: " " counter(mark);
+}
+
+/* 16 bomb6  9*/
+
+.bomb6 {
+    background: url("../image/bombIcon.png");
+    -webkit-animation: drop 3s ease-in 8.9s 1 alternate forwards;
+            animation: drop 3s ease-in 8.9s 1 alternate forwards;
+}
+
+/* 17 brick6 9.2*/
+
+.brick6 {
+    background: url("../image/brickIcon.png");
+    -webkit-animation: drop 2.5s ease-in 9.2s 1 alternate forwards;
+            animation: drop 2.5s ease-in 9.2s 1 alternate forwards;
+}
+
+#cbBrick6:checked {
+    counter-increment: mark 5;
+}
+
+#cbBrick6:checked~div .brick6 {
+    background: url("../image/bravoIcon.png");
+    opacity: 0;
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+    -webkit-transition: opacity 1s ease-out, background 0.3s ease-out;
+    transition: opacity 1s ease-out, background 0.3s ease-out;
+    pointer-events: none;
+}
+
+#cbBrick6:checked~div span::after {
+    content: " " counter(mark);
+}
+
+/* 18 gold7 9.7 gift */
+
+.gold7 {
+    background: url("../image/goldIcon.png");
+    -webkit-animation: drop 3s ease-in 9.7s 1 alternate forwards;
+            animation: drop 3s ease-in 9.7s 1 alternate forwards;
+}
+
+#cbGold7:checked {
+    counter-increment: mark 1;
+}
+
+#cbGold7:checked~div .gold7 {
+    background: url("../image/wowIcon.png");
+    opacity: 0;
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+    -webkit-transition: opacity 1s ease-out, background 0.3s ease-out;
+    transition: opacity 1s ease-out, background 0.3s ease-out;
+    -webkit-transition-delay: 0.3s;
+            transition-delay: 0.3s;
+    pointer-events: none;
+}
+
+#cbGold7:checked~div .gold7 img {
+    display: none;
+}
+
+#cbGold7:checked~div span::after {
+    content: " " counter(mark);
+}
+
+/* 19 brick7 9.8s */
+
+.brick7 {
+    background: url("../image/brickIcon.png");
+    -webkit-animation: drop 2.5s ease-in 9.8s 1 alternate forwards;
+            animation: drop 2.5s ease-in 9.8s 1 alternate forwards;
+}
+
+#cbBrick7:checked {
+    counter-increment: mark 5;
+}
+
+#cbBrick7:checked~div .brick7 {
+    background: url("../image/bravoIcon.png");
+    opacity: 0;
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+    -webkit-transition: opacity 1s ease-out, background 0.3s ease-out;
+    transition: opacity 1s ease-out, background 0.3s ease-out;
+    pointer-events: none;
+}
+
+#cbBrick7:checked~div .brick7 img {
+    display: none;
+}
+
+#cbBrick7:checked~div span::after {
+    content: " " counter(mark);
+}
+
+/* 20 bomb7  10.4s*/
+
+.bomb7 {
+    background: url("../image/bombIcon.png");
+    -webkit-animation: drop 2.5s ease-in 10.4s 1 alternate forwards;
+            animation: drop 2.5s ease-in 10.4s 1 alternate forwards;
+}
+
+#bomb:checked~div .bomb7 img {
+    display: none;
+}
+
+/* 21 brick 10.5s */
+
+.brick8 {
+    background: url("../image/brickIcon.png");
+    -webkit-animation: drop 2.5s ease-in 10.5s 1 alternate forwards;
+            animation: drop 2.5s ease-in 10.5s 1 alternate forwards;
+}
+
+#cbBrick8:checked {
+    counter-increment: mark 5;
+}
+
+#cbBrick8:checked~div .brick8 {
+    background: url("../image/bravoIcon.png");
+    opacity: 0;
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+    -webkit-transition: opacity 1s ease-out, background 0.3s ease-out;
+    transition: opacity 1s ease-out, background 0.3s ease-out;
+    pointer-events: none;
+}
+
+#cbBrick8:checked~div span::after {
+    content: " " counter(mark);
+}
+
+/* 22 bomb8 10.8 */
+
+.bomb8 {
+    background: url("../image/bombIcon.png");
+    -webkit-animation: drop 2.5s ease-in 10.8s 1 alternate forwards;
+            animation: drop 2.5s ease-in 10.8s 1 alternate forwards;
+}
+
+/* 23 gold3 11*/
+
+.gold8 {
+    background: url("../image/goldIcon.png");
+    -webkit-animation: drop 2.5s ease-in 11s 1 alternate forwards;
+            animation: drop 2.5s ease-in 11s 1 alternate forwards;
+}
+
+#cbGold8:checked {
+    counter-increment: mark 1;
+}
+
+#cbGold8:checked~div .gold8 {
+    background: url("../image/wowIcon.png");
+    /* the goldChestIcon.png is transparent, so reset background color */
+    opacity: 0;
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+    -webkit-transition: opacity 1s ease-out, background 0.3s ease-out;
+    transition: opacity 1s ease-out, background 0.3s ease-out;
+    pointer-events: none;
+}
+
+#cbGold8:checked~div span::after {
+    /* counter-increment: mark 1; */
+    content: " " counter(mark);
+}
+
+/* 24 bomb4 11.5 */
+
+.bomb9 {
+    background: url("../image/bombIcon.png");
+    -webkit-animation: drop 3s ease-in 11.5s 1 alternate forwards;
+            animation: drop 3s ease-in 11.5s 1 alternate forwards;
+}
+
+#bomb:checked~div .bomb9 img {
+    display: none;
+}
+
+/* 25 gold9 11.8 */
+
+.gold9 {
+    background: url("../image/goldIcon.png");
+    -webkit-animation: drop 2.5s ease-in 11.8s 1 alternate forwards;
+            animation: drop 2.5s ease-in 11.8s 1 alternate forwards;
+}
+
+#cbGold9:checked {
+    counter-increment: mark 1;
+}
+
+#cbGold9:checked~div .gold9 {
+    background: url("../image/wowIcon.png");
+    /* the goldChestIcon.png is transparent, so reset background color */
+    opacity: 0;
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+    -webkit-transition: opacity 1s ease-out, background 0.3s ease-out;
+    transition: opacity 1s ease-out, background 0.3s ease-out;
+    pointer-events: none;
+}
+
+#cbGold9:checked~div span::after {
+    /* counter-increment: mark 1; */
+    content: " " counter(mark);
+}
+
+/* 26 gold10 12*/
+
+.gold10 {
+    background: url("../image/goldIcon.png");
+    -webkit-animation: drop 2.5s ease-in 12s 1 alternate forwards;
+            animation: drop 2.5s ease-in 12s 1 alternate forwards;
+}
+
+#cbGold10:checked {
+    counter-increment: mark 1;
+}
+
+#cbGold10:checked~div .gold10 {
+    background: url("../image/wowIcon.png");
+    /* the goldChestIcon.jpg is transparent, so reset background color */
+    opacity: 0;
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+    -webkit-transition: opacity 1s ease-out, background 0.3s ease-out;
+    transition: opacity 1s ease-out, background 0.3s ease-out;
+    pointer-events: none;
+}
+
+#cbGold10:checked~div span::after {
+    /* counter-increment: mark 1; */
+    content: " " counter(mark);
+}
+
+/* 27 brick9  12.2*/
+
+.brick9 {
+    background: url("../image/brickIcon.png");
+    -webkit-animation: drop 2.5s ease-in 12.5s 1 alternate forwards;
+            animation: drop 2.5s ease-in 12.5s 1 alternate forwards;
+}
+
+#cbBrick9:checked {
+    counter-increment: mark 5;
+}
+
+#cbBrick9:checked~div .brick9 {
+    background: url("../image/bravoIcon.png");
+    opacity: 0;
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+    -webkit-transition: opacity 1s ease-out, background 0.3s ease-out;
+    transition: opacity 1s ease-out, background 0.3s ease-out;
+    pointer-events: none;
+}
+
+#cbBrick9:checked~div .brick9 img {
+    display: none;
+}
+
+#cbBrick9:checked~div span::after {
+    content: " " counter(mark);
+}
+
+/* 28 bomb10  12.5*/
+
+.bomb10 {
+    background: url("../image/bombIcon.jpg");
+    -webkit-animation: drop 2.5s ease-in 12.5s 1 alternate forwards;
+            animation: drop 2.5s ease-in 12.5s 1 alternate forwards;
+}
+
+.bottomRibbon {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: skyblue url("../image/bottom.jpg") center bottom no-repeat;
+    height: 100px;
+    z-index: 1;
+}
+
+.box {
+    position: absolute;
+    width: 85%;
+    height: 25px;
+    position: absolute;
+    left: 1%;
+    top: 30%;
+    border: 2px inset whitesmoke;
+    border-radius: 10px;
+    background-color: whitesmoke;
+}
+
+.bar {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    background: whitesmoke url("../image/bar.png") center center /100% 100% no-repeat;
+    -webkit-animation: bar 15s linear;
+            animation: bar 15s linear;
+    border-radius: 10px;
+}
+
+/* .bottomRibbon div {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+} */
+
+footer {
+    position: absolute;
+    bottom: 0;
+    background-color: whitesmoke;
+    text-align: center;
+    padding-bottom: 1em;
+    z-index: -1;
+    width: 100%;
+    /* float: left; */
+}
+
+
+@-webkit-keyframes bar {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0;
+    }
+}
+
+@keyframes bar {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0;
+    }
+}
+
+@-webkit-keyframes drop {
+    from {
+        top: 0;
+    }
+    to {
+        top: 610px;
+    }
+}
+
+@keyframes drop {
+    from {
+        top: 0;
+    }
+    to {
+        top: 610px;
+    }
+}
+
+
+/* the following is created by another member Bianyu Wang */
+.count {
+    margin: 0;
+    width: 100px;
+    height: 80px;
+    font-size: 80px;
+    font-family: Frijole;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    -webkit-animation: go 17s;
+            animation: go 17s;
+    -webkit-transform-origin: left bottom;
+            transform-origin: left bottom;
+    z-index: 400;
+}
+
+.num {
+    position: absolute;
+    color: darkcyan;
+    line-height: 1em;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, .3);
+    -webkit-animation: run 16s steps(16);
+            animation: run 16s steps(16);
+}
+
+@-webkit-keyframes run {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: -16em;
+    }
+}
+
+@keyframes run {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: -16em;
+    }
+}
+
+@-webkit-keyframes go {
+    0% {
+        opacity: 1;
+    }
+    84% {
+        opacity: 1;
+        -webkit-transform: rotate(0deg) scale(1);
+                transform: rotate(0deg) scale(1);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: rotate(360deg) scale(.01);
+                transform: rotate(360deg) scale(.01);
+    }
+}
+
+@keyframes go {
+    0% {
+        opacity: 1;
+    }
+    84% {
+        opacity: 1;
+        -webkit-transform: rotate(0deg) scale(1);
+                transform: rotate(0deg) scale(1);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: rotate(360deg) scale(.01);
+                transform: rotate(360deg) scale(.01);
+    }
+}
+
